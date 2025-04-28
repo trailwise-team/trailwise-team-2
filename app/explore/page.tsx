@@ -16,3 +16,15 @@ export default async function Home() {
     </div>
   );
 }
+"use client";
+
+import MapScreen from "../../components/MapScreen";
+
+export default function ExplorePage() {
+  return (
+    <div style={{ height: "100vh", width: "100vw", overflow: "hidden" }}>
+      <MapScreen />
+    </div>
+  );
+}
+
