@@ -1,16 +1,4 @@
 
-// export default async function savedParksHome() {
-    
-//   return (
-//     <div className="flex flex-col h-screen">
-//         <h1 className="flex flex-col font-bold">Saved Parks</h1>
-//         <p>
-//           dummy text Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates dolore repudiandae magni corporis error, quaerat expedita aut qui dolorum inventore numquam molestiae, quae, unde ad ex maxime odio incidunt voluptatibus?
-//         </p>
-//         <footer>Trailwise copyright 2025</footer>
-//     </div>
-//   );
-// }
 
 import React from 'react';
 import { Input } from '@/components/ui/input';
