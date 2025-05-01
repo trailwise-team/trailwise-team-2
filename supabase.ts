@@ -34,26 +34,148 @@ export type Database = {
   }
   public: {
     Tables: {
-      user: {
+      PARK: {
         Row: {
-          created_at: string | null
-          email: string
-          name: string | null
-          Oath_key: string | null
+          description: string
+          image_url: string | null
+          latitude: number
+          links_url: string | null
+          longitude: number
+          name: string
+          park: string
+          rules: Json | null
+          trail_association: string
+        }
+        Insert: {
+          description: string
+          image_url?: string | null
+          latitude: number
+          links_url?: string | null
+          longitude: number
+          name: string
+          park?: string
+          rules?: Json | null
+          trail_association: string
+        }
+        Update: {
+          description?: string
+          image_url?: string | null
+          latitude?: number
+          links_url?: string | null
+          longitude?: number
+          name?: string
+          park?: string
+          rules?: Json | null
+          trail_association?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "PARK_trail_association_fkey"
+            columns: ["trail_association"]
+            isOneToOne: false
+            referencedRelation: "TRAIL_ASSOCIATION"
+            referencedColumns: ["trail_association"]
+          },
+        ]
+      }
+      SAVED_PARK: {
+        Row: {
+          park: string | null
+          saved_at: string
+          saved_park: string
+          type: string
           user: string
         }
         Insert: {
-          created_at?: string | null
-          email: string
+          park?: string | null
+          saved_at?: string
+          saved_park?: string
+          type: string
+          user: string
+        }
+        Update: {
+          park?: string | null
+          saved_at?: string
+          saved_park?: string
+          type?: string
+          user?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "SAVED_PARK_park_fkey"
+            columns: ["park"]
+            isOneToOne: false
+            referencedRelation: "PARK"
+            referencedColumns: ["park"]
+          },
+          {
+            foreignKeyName: "SAVED_PARK_user_fkey"
+            columns: ["user"]
+            isOneToOne: false
+            referencedRelation: "USER"
+            referencedColumns: ["user"]
+          },
+        ]
+      }
+      TESTuser: {
+        Row: {
+          created_at: string
+          id: string
+          name: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
           name?: string | null
-          Oath_key?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string | null
+        }
+        Relationships: []
+      }
+      TRAIL_ASSOCIATION: {
+        Row: {
+          link_url: string
+          name: string
+          rules: Json
+          trail_association: string
+        }
+        Insert: {
+          link_url: string
+          name: string
+          rules: Json
+          trail_association?: string
+        }
+        Update: {
+          link_url?: string
+          name?: string
+          rules?: Json
+          trail_association?: string
+        }
+        Relationships: []
+      }
+      USER: {
+        Row: {
+          created_at: string
+          email: string
+          name: string
+          OAuth_key: string
+          user: string
+        }
+        Insert: {
+          created_at: string
+          email: string
+          name: string
+          OAuth_key: string
           user?: string
         }
         Update: {
-          created_at?: string | null
+          created_at?: string
           email?: string
-          name?: string | null
-          Oath_key?: string | null
+          name?: string
+          OAuth_key?: string
           user?: string
         }
         Relationships: []
