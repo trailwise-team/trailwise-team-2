@@ -49,20 +49,12 @@ export default async function ParkPage({ params }: { params: { parkId: string } 
                     <form action="http://localhost:3000/Template" method="get" style={{ display: 'inline' }}>
                         <button type="submit" style={circleButtonStyle}>←</button>
                     </form>
-
-                    <form action="/api/saved-parks" method="POST" style={{ display: 'inline' }}>
-                        <input type="hidden" name="saved-parks" value={data?.park ?? ''} />
-                        <input type="hidden" name="user" value="user123" /> {/* Replace with actual user ID if available */}
-                        <input type="hidden" name="type" value="favorite" />
-                        <input type="hidden" name="saved_at" value={new Date().toISOString()} />
-                        <button
-                            type="submit"
-                            style={circleButtonStyle}
-                            aria-label="Add to bookmarks"
-                        >
-                            ☆
-                        </button>
-                    </form>
+                    <button
+                        style={circleButtonStyle}
+                        aria-label={false ? 'Remove from bookmarks' : 'Add to bookmarks'}
+                    >
+                        {false ? '★' : '☆'}
+                    </button>
 
                     <br />
                     <br />
