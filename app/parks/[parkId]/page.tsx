@@ -3,7 +3,11 @@
 import { supabase } from './supabaseclient';
 import { Tables } from '@/supabase';
 
-
+type state = {
+    bookmarked: boolean
+    loading: boolean
+    error: string | null
+}
 export default async function ParkPage({ params }: { params: { parkId: string } }) {
     const { parkId } = await params;
     console.log(parkId)
@@ -14,13 +18,20 @@ export default async function ParkPage({ params }: { params: { parkId: string } 
         .eq('park', parkId)
         .single();
 
-        console.log({data, error});
+    console.log({ data, error });
 
+
+    <script>
+        function goBack()
+        window.location.href = "http://localhost:3000/Template";
+
+
+    </script>
 
     return (
         <div style={{ position: 'relative', width: '1550px', height: '300px' }}>
             <img
-                src="https://designshack.net/wp-content/uploads/placehold.jpg"
+                src={data?.image_url ?? " "}
                 alt="Background"
                 style={{
                     position: 'absolute',
@@ -35,9 +46,9 @@ export default async function ParkPage({ params }: { params: { parkId: string } 
             />
             <div style={{ backgroundColor: 'white', minHeight: '100%' }}>
                 <div style={{ position: 'relative', zIndex: 1, padding: '20px', color: 'black' }}>
-                    <button style={circleButtonStyle} aria-label="Go back">
-                        ←
-                    </button>
+                    <form action="http://localhost:3000/Template" method="get" style={{ display: 'inline' }}>
+                        <button type="submit" style={circleButtonStyle}>←</button>
+                    </form>
                     <button
                         style={circleButtonStyle}
                         aria-label={false ? 'Remove from bookmarks' : 'Add to bookmarks'}
@@ -45,14 +56,16 @@ export default async function ParkPage({ params }: { params: { parkId: string } 
                         {false ? '★' : '☆'}
                     </button>
 
-                    <button style={circleButtonStyle} aria-label="Save park">
-                        ✅
-                    </button>
-
-                    <button style={circleButtonStyle} aria-label="Share park">
-                        📤
-                    </button>
-
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
                     <br />
                     <br />
                     <br />
@@ -70,7 +83,7 @@ export default async function ParkPage({ params }: { params: { parkId: string } 
                             <div>{data.description}</div>
 
                             <br />
-
+                            <strong>Rules: </strong>
                             <ol>
                                 {data.rules ? (
                                     Object.entries(data.rules).map(([key, value], index) => (
