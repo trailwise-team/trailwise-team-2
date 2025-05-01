@@ -39,7 +39,7 @@ export default async function ParkPage({ params }: { params: { parkId: string } 
                     left: '10px',
                     width: '1500px',
                     height: '100%',
-                    objectFit: 'cover',
+                    objectFit: 'contain',
                     zIndex: 0,
                     borderRadius: '15px',
                 }}
