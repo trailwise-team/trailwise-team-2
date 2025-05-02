@@ -1,7 +1,5 @@
 'use server';
 
-import mapboxgl, { Marker, Popup } from 'mapbox-gl';
-import { createClient } from '@supabase/supabase-js';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { supabase } from './supabaseclient';
 import ParkMap from './ParkMap';
