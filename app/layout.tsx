@@ -9,11 +9,13 @@ import { LogoutButton } from "@/components/Logout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  display: 'swap',
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  display: 'swap',
   subsets: ["latin"],
 });
 
