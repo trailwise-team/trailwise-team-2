@@ -1,23 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FaMapSigns } from "react-icons/fa";
 import { CiBookmark } from "react-icons/ci";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { auth } from '@/auth';
 import { LogoutButton } from "@/components/Logout";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  display: 'swap',
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  display: 'swap',
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -35,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased`}
       >
         {!!session ? <LogoutButton /> : ''}
         {children}
