@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { FaMapSigns } from "react-icons/fa";
+import { CiBookmark } from "react-icons/ci";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +31,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer className="flex justify-around">
+          <FaMapSigns />
+          <CiBookmark />
+          <IoIosAddCircleOutline />
+        </footer>
       </body>
     </html>
   );
