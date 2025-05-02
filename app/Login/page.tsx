@@ -2,7 +2,9 @@ import { signIn } from "@/auth";
 
 const signin = async () => {
   "use server";
-  await signIn("google");
+  await signIn("google", {
+    redirectTo: '/Template'
+  });
 };
 
 export default function LoginPage() {
