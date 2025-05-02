@@ -1,4 +1,10 @@
 import { signIn } from "@/auth";
+
+const signin = async () => {
+  "use server";
+  await signIn("google");
+};
+
 export default function LoginPage() {
   return (
     <div
@@ -14,10 +20,7 @@ export default function LoginPage() {
         </div>
 
         <form
-          action={async () => {
-            "use server";
-            await signIn("google");
-          }}
+          action={signin}
           className="bg-white p-6 rounded-2xl shadow-md flex flex-col gap-4"
         >
           <input
